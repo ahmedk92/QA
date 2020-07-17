@@ -1,2 +1,2 @@
 # QA
-Ask free questions by opening an issue
+Ask questions by opening an issue
