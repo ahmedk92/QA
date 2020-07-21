@@ -25,6 +25,7 @@ jobs:
               ref: 'master'
              });
              github.repos.createOrUpdateFileContents({
+              sha: commit.sha,
               owner: context.repo.owner,
               repo: context.repo.repo,
               path: 'README.md',
@@ -37,6 +38,5 @@ jobs:
               author: {
                 name: 'update-readme-bot',
                 email: 'ahmedkhalaf.92@gmail.com' 
-              }, 
-              sha: commit.sha
+              }
             });
