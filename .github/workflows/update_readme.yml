@@ -19,12 +19,13 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const commit = await github.repos.getCommitActivityStats({
-                            owner: context.repo.owner,
-                            repo: context.repo.repo,
-                            ref: 'HEAD'
-                           });
-            github.repos.createOrUpdateFileContents({
+            github.repos.getCommitActivityStats({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'HEAD'
+             })
+             .then(result => {
+              github.repos.createOrUpdateFileContents({
               owner: context.repo.owner,
               repo: context.repo.repo,
               path: 'README.md',
@@ -38,5 +39,6 @@ jobs:
                 name: 'update-readme-bot',
                 email: 'ahmedkhalaf.92@gmail.com' 
               }, 
-              sha: commit.sha
+              sha: result.sha
             })
+             })
