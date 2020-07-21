@@ -19,16 +19,15 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const commit = await github.repos.getCommit({
+            const readme = await github.repos.getReadme({
               owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'master'
+              repo: context.repo.repo
              });
              github.repos.createOrUpdateFileContents({
-              sha: commit.data.sha,
+              sha: readme.data.sha,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              path: 'README.md',
+              path: readme.data.path,
               message: 'Update README',
               content: 'VGVzdCB0ZXN0',
               commiter: {
