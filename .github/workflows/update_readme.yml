@@ -19,7 +19,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            repos.createOrUpdateFileContents({
+            github.repos.createOrUpdateFileContents({
               context.repo.owner,
               context.repo.repo,
               'README.md',
