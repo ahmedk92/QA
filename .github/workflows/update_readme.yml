@@ -19,6 +19,10 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            const commit = await github.repos.getCommitActivityStats({
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                           });
             github.repos.createOrUpdateFileContents({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -33,5 +37,5 @@ jobs:
                 name: 'update-readme-bot',
                 email: 'ahmedkhalaf.92@gmail.com' 
               }, 
-              sha: 'HEAD'
+              sha: commit.sha
             })
