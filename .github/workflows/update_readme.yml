@@ -22,7 +22,7 @@ jobs:
             github.repos.getCommitActivityStats({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: 'HEAD'
+              ref: 'master'
              })
              .then(result => {
               github.repos.createOrUpdateFileContents({
