@@ -24,6 +24,8 @@ jobs:
               repo: context.repo.repo,
               ref: 'master'
              });
+             console.log("Hello");
+             console.log(commit);
              github.repos.createOrUpdateFileContents({
               sha: commit.sha,
               owner: context.repo.owner,
