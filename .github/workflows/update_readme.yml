@@ -22,6 +22,7 @@ jobs:
             const commit = await github.repos.getCommitActivityStats({
                             owner: context.repo.owner,
                             repo: context.repo.repo,
+                            ref: 'HEAD'
                            });
             github.repos.createOrUpdateFileContents({
               owner: context.repo.owner,
