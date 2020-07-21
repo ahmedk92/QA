@@ -20,13 +20,13 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.repos.createOrUpdateFileContents({
-              context.repo.owner,
-              context.repo.repo,
-              'UkVBRE1FLm1k',
-              'Update README',
-              'Test Test',
-              'update-readme-bot',
-              '',
-              'update-readme-bot',
-              ''
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: 'README.md',
+              message: 'Update README',
+              content: 'Test Test',
+              commiter.name: 'update-readme-bot',
+              committer.email: '',
+              author.name: 'update-readme-bot',
+              author.email: ''
             })
