@@ -24,10 +24,8 @@ jobs:
               repo: context.repo.repo,
               ref: 'master'
              });
-             console.log("Hello");
-             console.log(commit);
              github.repos.createOrUpdateFileContents({
-              sha: commit.sha,
+              sha: commit.data.sha,
               owner: context.repo.owner,
               repo: context.repo.repo,
               path: 'README.md',
