@@ -25,6 +25,7 @@ jobs:
               ref: 'master'
              })
              .then(result => {
+              console.log(result);
               github.repos.createOrUpdateFileContents({
               owner: context.repo.owner,
               repo: context.repo.repo,
