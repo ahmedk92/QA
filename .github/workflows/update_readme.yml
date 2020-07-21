@@ -27,11 +27,11 @@ jobs:
               content: 'VGVzdCB0ZXN0',
               commiter: {
                 name: 'update-readme-bot', 
-                email: ''
+                email: 'ahmedkhalaf.92@gmail.com'
               },
               author: {
                 name: 'update-readme-bot',
-                email: '' 
+                email: 'ahmedkhalaf.92@gmail.com' 
               }, 
               sha: 'HEAD'
             })
