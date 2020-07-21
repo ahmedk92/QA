@@ -22,7 +22,7 @@ jobs:
             github.repos.createOrUpdateFileContents({
               context.repo.owner,
               context.repo.repo,
-              'README.md',
+              'UkVBRE1FLm1k',
               'Update README',
               'Test Test',
               'update-readme-bot',
