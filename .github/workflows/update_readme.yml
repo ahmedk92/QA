@@ -19,9 +19,14 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
+            repos.createOrUpdateFileContents({
+              context.repo.owner,
+              context.repo.repo,
+              'README.md',
+              'Update README',
+              'Test Test',
+              'update-readme-bot',
+              '',
+              'update-readme-bot',
+              ''
             })
