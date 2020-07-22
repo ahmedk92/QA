@@ -23,10 +23,10 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo
              });
-             const issues = await github.issues.listForRepo(
+             const issues = await github.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo
-             );
+             });
              var readmeContents = "";
              for (const issue of issues.data) {
               const line = "#["+issue.title+"]("+issue.url+")\n\n";
