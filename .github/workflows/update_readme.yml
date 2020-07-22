@@ -23,13 +23,22 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo
              });
+             const issues = await github.issues.listForRepo(
+              owner: context.repo.owner,
+              repo: context.repo.repo
+             );
+             var readmeContents = "";
+             for (const issue of issues.data) {
+              const line = "#["+issue.title+"]("+issue.url+")\n\n";
+              readmeContents += line;
+             }
              github.repos.createOrUpdateFileContents({
               sha: readme.data.sha,
               owner: context.repo.owner,
               repo: context.repo.repo,
               path: readme.data.path,
               message: 'Update README',
-              content: 'VGVzdCB0ZXN0',
+              content: btoa(readmeContents),
               commiter: {
                 name: 'update-readme-bot', 
                 email: 'ahmedkhalaf.92@gmail.com'
